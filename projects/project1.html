@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+        body::after { display: none !important; }
+
+        body {
+            margin: 0;
+            padding: 3rem;
+            color: var(--color-text-main);
+            font-family: var(--font-main);
+            /* Transparent background so the parent container's glassmorphism shows through */
+            background: transparent !important;
+        }
+
+        h2 {
+            color: var(--color-accent);
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--color-text-body);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .tags {
+            margin-top: 2rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(var(--color-accent-rgb), 0.2);
+            color: var(--color-accent);
+            border: 1px solid rgba(var(--color-accent-rgb), 0.5);
+            border-radius: 20px;
+            margin-right: 0.8rem;
+            font-size: 0.9rem;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <h2>VR Training Simulator</h2>
+    <p>A highly interactive VR simulator built with Unity for Meta Quest. Features realistic physics-driven
+        interactions, allowing users to train for high-risk scenarios in a completely safe environment. Optimized for 90
+        FPS to prevent motion sickness.</p>
+    <div class="tags">
+        <span class="tag">Unity 3D</span>
+        <span class="tag">Meta Quest</span>
+        <span class="tag">Physics</span>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            if (window.parent && window.frameElement) {
+                const rect = window.frameElement.getBoundingClientRect();
+                const parentX = e.clientX + rect.left;
+                const parentY = e.clientY + rect.top;
+                window.parent.document.body.style.setProperty('--mouse-x', `${parentX}px`);
+                window.parent.document.body.style.setProperty('--mouse-y', `${parentY}px`);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,52 +8,278 @@
     <!-- Linking external CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="logo">Sudstack.</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Fixed Parallax Background -->
+    <div class="cave-background" id="cave-bg"></div>
+    <div class="spotlight-wrapper">
+        <div class="cave-background-editor" id="cave-bg-editor"></div>
+    </div>
 
-    <header class="hero" id="about">
-        <div class="hero-content">
-            <h1>Hi, I'm Sudhakar Mishra</h1>
-            <h2>Senior Unity & VR Developer</h2>
-            <p>Specializing in Meta Quest, Multiplayer Architecture (Photon), and Cross-Platform Launches.</p>
-            <a href="#projects" class="btn">View My Work</a>
-        </div>
-    </header>
+    <!-- Canvas for Fireflies -->
+    <canvas id="fireflies"></canvas>
 
-    <section id="projects" class="projects-section">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="project-grid">
-            <!-- Project Card 1 -->
-            <div class="project-card">
-                <h3>VR Training Simulator</h3>
-                <p>Meta Quest optimized simulation with physics-driven interactions.</p>
-                <span class="tag">Unity 3D</span>
-                <span class="tag">Meta Quest</span>
+
+    <!-- Scroll Container -->
+    <div class="scroll-container" id="scroll-container">
+
+        <!-- Section 1: Hero -->
+        <section id="about" class="panel">
+            <div class="panel-content glass text-center">
+                <h1 class="animate-on-scroll">Hi, I'm Sudhakar Mishra</h1>
+                <h2 class="animate-on-scroll delay-1">Senior Unity & VR Developer</h2>
+                <p class="animate-on-scroll delay-2">Specializing in Meta Quest, Multiplayer Architecture (Photon), and
+                    Cross-Platform Launches.</p>
+                <a href="#projects" class="btn animate-on-scroll delay-3">View My Work</a>
             </div>
-            <!-- Project Card 2 -->
-            <div class="project-card">
-                <h3>Multiplayer Arena</h3>
-                <p>Fast-paced multiplayer game leveraging Photon Quantum for deterministic networking.</p>
-                <span class="tag">Photon Quantum</span>
-                <span class="tag">AWS</span>
+        </section>
+
+        <!-- Section 2: Experience -->
+        <section id="experience" class="panel experience-section">
+            <div class="panel-content" style="max-width: 90vw; width: 90vw;">
+                <h2 class="section-title animate-on-scroll">Experience</h2>
+                <div class="timeline">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item animate-on-scroll delay-1">
+                        <div class="timeline-date">
+                            <span class="date">2023 - Present</span>
+                            <span class="position">Senior Unity Developer</span>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3>Tech Corp</h3>
+                            <p>Developed core multiplayer mechanics using Photon Quantum. Optimized VR performance for
+                                Meta Quest 3.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item right animate-on-scroll delay-2">
+                        <div class="timeline-date">
+                            <span class="date">2020 - 2023</span>
+                            <span class="position">Unity Developer</span>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3>Indie Studio</h3>
+                            <p>Implemented physics-driven interactions. Managed cross-platform builds and automated
+                                deployment pipelines.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contact">
-        <p>Let's build something immersive.</p>
-        <p><a href="mailto:your.email@example.com">Contact Me</a></p>
-    </footer>
+        <!-- Showcase Panel 1 -->
+        <section class="panel project-showcase-panel">
+            <div class="panel-content"
+                style="max-width: 95vw; width: 95vw; height: 90vh; margin-top: 5vh; display: flex; flex-direction: column; justify-content: flex-start; gap: 3vh;">
 
-    <!-- Linking external JS -->
+                <!-- Top Timeline Header -->
+                <div class="timeline" style="padding: 0;">
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-date">
+                            <span class="date">2022</span>
+                            <span class="position">Lead Developer</span>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3>Awesome Studio</h3>
+                            <p>Led development of major titles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="projects-wrapper animate-on-scroll delay-1"
+                    style="flex: 1; display: flex; flex-direction: column;">
+                    <!-- Removed Projects h4 -->
+                    <div class="carousel-container" style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 1vw; flex: 1;">
+                        <button class="panel-prev" style="background: none; border: none; color: var(--color-text-main); font-size: 3rem; cursor: pointer; padding: 0.5rem; transition: color 0.3s;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-main)'">&#8678;</button>
+                        
+                        <div class="glass project-glass"
+                            style="position: relative; max-width: 100%; flex: 1; min-height: 55vh; display: flex; gap: 3vw; align-items: stretch; padding: 4vh 3vw 6vh 3vw;">
+
+                            <!-- Media Left -->
+                            <div class="project-media"
+                                style="flex: 1.5; background: rgba(var(--color-bg-base-rgb), 0.6); border: 2px dashed rgba(var(--color-accent-rgb), 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <span class="media-text" style="color: var(--color-text-muted); font-size: 1.2rem;">{Video/Image}</span>
+                            </div>
+
+                            <!-- Info Right -->
+                            <div class="project-info"
+                                style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                                <h3 class="info-title" style="color: var(--color-accent); font-size: 1.8rem; margin-bottom: 2vh;">about the Projects</h3>
+                                <p class="info-desc" style="color: var(--color-text-body); font-size: 1.1rem; line-height: 1.6;">This was a major release
+                                    focusing on multiplayer connectivity and VR optimizations. Achieved top charts.</p>
+                            </div>
+
+                            <!-- Carousel Dots (Instagram Style) -->
+                            <div class="panel-dots-wrapper" style="width: 120px; overflow: hidden; height: 24px; position: absolute; bottom: 2vh; left: 50%; transform: translateX(-50%); z-index: 10;">
+                                <div class="panel-dots-track" style="display: flex; gap: 12px; transition: transform 0.3s ease; height: 100%; align-items: center; position: absolute; left: 50%;">
+                                    <!-- Dots will be generated here by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="panel-next" style="background: none; border: none; color: var(--color-text-main); font-size: 3rem; cursor: pointer; padding: 0.5rem; transition: color 0.3s;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-main)'">&#8680;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase Panel 2 -->
+        <section class="panel project-showcase-panel">
+            <div class="panel-content"
+                style="max-width: 95vw; width: 95vw; height: 90vh; margin-top: 5vh; display: flex; flex-direction: column; justify-content: flex-start; gap: 3vh;">
+
+                <!-- Top Timeline Header -->
+                <div class="timeline" style="padding: 0;">
+                    <div class="timeline-item right animate-on-scroll">
+                        <div class="timeline-date">
+                            <span class="date">2021</span>
+                            <span class="position">Game Developer</span>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3>Creative Co.</h3>
+                            <p>Built innovative gameplay systems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="projects-wrapper animate-on-scroll delay-1"
+                    style="flex: 1; display: flex; flex-direction: column;">
+                    <!-- Removed Projects h4 -->
+                    <div class="carousel-container" style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 1vw; flex: 1;">
+                        <button class="panel-prev" style="background: none; border: none; color: var(--color-text-main); font-size: 3rem; cursor: pointer; padding: 0.5rem; transition: color 0.3s;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-main)'">&#8678;</button>
+                        
+                        <div class="glass project-glass"
+                            style="position: relative; max-width: 100%; flex: 1; min-height: 55vh; display: flex; gap: 3vw; align-items: stretch; padding: 4vh 3vw 6vh 3vw;">
+
+                            <!-- Info Left -->
+                            <div class="project-info"
+                                style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                                <h3 class="info-title" style="color: var(--color-accent); font-size: 1.8rem; margin-bottom: 2vh;">about the Projects</h3>
+                                <p class="info-desc" style="color: var(--color-text-body); font-size: 1.1rem; line-height: 1.6;">This project pushed the
+                                    boundaries of mobile performance with custom shaders and logic.</p>
+                            </div>
+
+                            <!-- Media Right -->
+                            <div class="project-media"
+                                style="flex: 1.5; background: rgba(var(--color-bg-base-rgb), 0.6); border: 2px dashed rgba(var(--color-accent-rgb), 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <span class="media-text" style="color: var(--color-text-muted); font-size: 1.2rem;">{Video/Image}</span>
+                            </div>
+
+                            <!-- Carousel Dots (Instagram Style) -->
+                            <div class="panel-dots-wrapper" style="width: 120px; overflow: hidden; height: 24px; position: absolute; bottom: 2vh; left: 50%; transform: translateX(-50%); z-index: 10;">
+                                <div class="panel-dots-track" style="display: flex; gap: 12px; transition: transform 0.3s ease; height: 100%; align-items: center; position: absolute; left: 50%;">
+                                    <!-- Dots will be generated here by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="panel-next" style="background: none; border: none; color: var(--color-text-main); font-size: 3rem; cursor: pointer; padding: 0.5rem; transition: color 0.3s;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-main)'">&#8680;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Experience Continued -->
+        <section class="panel experience-section">
+            <div class="panel-content" style="max-width: 90vw; width: 90vw;">
+                <div class="timeline">
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item animate-on-scroll delay-1">
+                        <div class="timeline-date">
+                            <span class="date">2018 - 2020</span>
+                            <span class="position">Game Programmer</span>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3>Pixel Studios</h3>
+                            <p>Worked on gameplay systems for mobile titles. Integrated third-party SDKs and analytics
+                                tools for user tracking.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item right animate-on-scroll delay-2">
+                        <div class="timeline-date">
+                            <span class="date">2016 - 2018</span>
+                            <span class="position">Junior Developer</span>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3>GameLab Inc</h3>
+                            <p>Assisted in prototyping new game concepts. Created UI components and maintained
+                                documentation for codebase.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: All Projects Iframe Carousel -->
+        <section class="panel iframe-projects-panel" id="all-projects">
+            <div class="panel-content" style="max-width: 90vw; width: 90vw; height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2vh; margin-top: 5vh;">
+                <h2 style="color: var(--color-text-secondary); margin-bottom: 2vh; font-size: 2rem;">Projects</h2>
+                
+                <div class="iframe-carousel-container" style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 2vw; flex: 1;">
+                    <!-- Left Arrow -->
+                    <button id="prev-project" style="background: none; border: none; color: var(--color-text-main); font-size: 4rem; cursor: pointer; padding: 1rem; transition: color 0.3s;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-main)'">&#8678;</button>
+                    
+                    <!-- Iframe Box -->
+                    <div class="glass" style="position: relative; flex: 1; height: 100%; padding: 0; overflow: hidden; border: 2px solid rgba(var(--color-accent-rgb), 0.3); max-width: none; width: auto; border-radius: 12px; background: rgba(var(--color-bg-base-rgb), 0.4);">
+                        <iframe id="project-iframe" src="projects/project1.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                        
+                        <!-- Carousel Dots (Instagram Style) -->
+                        <div class="iframe-dots-wrapper" style="width: 120px; overflow: hidden; height: 24px; position: absolute; bottom: 2vh; left: 50%; transform: translateX(-50%); z-index: 10;">
+                            <div class="iframe-dots-track" style="display: flex; gap: 12px; transition: transform 0.3s ease; height: 100%; align-items: center; position: absolute; left: 50%;">
+                                <!-- Dots will be generated here by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Arrow -->
+                    <button id="next-project" style="background: none; border: none; color: var(--color-text-main); font-size: 4rem; cursor: pointer; padding: 1rem; transition: color 0.3s;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-main)'">&#8680;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Contact -->
+        <section id="contact" class="panel contact-section">
+            <div class="panel-content glass text-center" style="max-width: 90vw; width: 90vw; padding: 8vh 4vw; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3vh;">
+                <h2 class="section-title animate-on-scroll" style="margin-bottom: 1vh;">Get In Touch</h2>
+                <p class="animate-on-scroll delay-1" style="color: var(--color-text-secondary); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                    I'm currently open to new opportunities. Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
+                </p>
+                
+                <div class="contact-links animate-on-scroll delay-2" style="display: flex; gap: 1.5vw; justify-content: center; margin-top: 3vh; flex-wrap: wrap;">
+                    <a href="mailto:sudhakar@example.com" class="btn" style="display: flex; align-items: center; gap: 10px; background: rgba(var(--color-accent-rgb), 0.1); border: 1px solid var(--color-accent); padding: 12px 24px; font-weight: 500;">
+                        <span style="font-size: 1.2rem;">📧</span> Email Me
+                    </a>
+                    <a href="https://linkedin.com/in/sudhakar" target="_blank" class="btn" style="display: flex; align-items: center; gap: 10px; background: rgba(var(--color-accent-rgb), 0.1); border: 1px solid var(--color-accent); padding: 12px 24px; font-weight: 500;">
+                        <span style="font-size: 1.2rem;">💼</span> LinkedIn
+                    </a>
+                    <a href="https://github.com/sudhakar" target="_blank" class="btn" style="display: flex; align-items: center; gap: 10px; background: rgba(var(--color-accent-rgb), 0.1); border: 1px solid var(--color-accent); padding: 12px 24px; font-weight: 500;">
+                        <span style="font-size: 1.2rem;">💻</span> GitHub
+                    </a>
+                    <a href="#" class="btn" style="display: flex; align-items: center; gap: 10px; background: rgba(var(--color-accent-rgb), 0.1); border: 1px solid var(--color-accent); padding: 12px 24px; font-weight: 500;">
+                        <span style="font-size: 1.2rem;">📄</span> Resume
+                    </a>
+                </div>
+                
+                <div class="animate-on-scroll delay-3" style="margin-top: 6vh; color: #64748b; font-size: 0.9rem;">
+                    <p>© 2026 Sudhakar Mishra. Built with ❤️</p>
+                </div>
+            </div>
+        </section>
+
+    </div>    <!-- Linking external JS -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
