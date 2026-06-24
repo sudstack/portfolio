@@ -121,13 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (projectIframe && prevBtn && nextBtn && dotsTrack) {
         const iframeProjects = [
-            'projects/project1.html',
-            'projects/project2.html',
-            'projects/project3.html',
-            'projects/project2.html',
-            'projects/project1.html',
-            'projects/project2.html',
-            'projects/project3.html',
+            'projects/hoverplay.html',
+            'projects/cambio.html',
+            'projects/cryptoplay.html'
         ];
         let currentIframeIndex = 0;
         const dots = [];
@@ -212,83 +208,95 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. Generic Showcase Panels Carousel
     const showcaseWrappers = document.querySelectorAll('.project-showcase-panel .projects-wrapper');
-    
+
     // Mock data for each panel
+    // 'type' can be 'image', 'video', or 'text'.
+    // 'src' can be a local path (e.g. 'assets/images/pic.png') or an external link.
     const panelMockData = [
         // Panel 1 Data
         [
-            { 
-                title: "HoloHome VisualEz", 
-                desc: "First major release focusing on multiplayer connectivity and VR optimizations. Achieved top charts.", 
-                media: "https://play.google.com/store/apps/details?id=com.visualez.visualezai&hl=en_IN" 
+            {
+                title: "HoloHome VisualEz",
+                desc: "Visualez is a high-performance tile visualization application tailored for tile retailers. By leveraging Addressables for dynamic, on-demand asset delivery, Visualez empowers users to seamlessly create, share, and sell stunning tile designs without compromising on app size or rendering speed.",
+                type: "video",
+                src: "https://www.visualez.com/assets/HomePageFinal-7ad0549d.mp4"
             },
-            { 
-                title: "Orientbell Quicklook", 
-                desc: "Quicklook by Orientbell is a powerful tile visualization app designed exclusively for Orientbell employees, retailers, and channel partners. With its extensive features, Quicklook empowers to create, share, and sell stunning tile designs effortlessly.", 
-                media: "Lobby Screenshot" 
+            {
+                title: "Orientbell Quicklook",
+                desc: "Quicklook by Orientbell is a powerful tile visualization app designed exclusively for Orientbell employees, retailers, and channel partners. With its extensive features, Quicklook empowers to create, share, and sell stunning tile designs effortlessly. <br><br> <a href='https://play.google.com/store/apps/details?id=com.orientbell.Quicklook' target='_blank' style='color: var(--color-accent); text-decoration: underline;'>Orientbell Quicklook on Play Store</a>",
+                type: "image",
+                src: "https://play-lh.googleusercontent.com/A5F_GOP298s86-sZzkG3JuhYygp42KFiMLcCDQ3sYRgrXPq1EQQm0Bcm3hjaY5KwO4IeisT1MiAuwwkDwpt-Ip8=w5120-h2880-rw" 
             },
         ],
-        // Panel 2 Data
+                // Panel 2 Data
         [
-            { 
-                title: "Mobile RPG Setup", 
-                desc: "This project pushed the boundaries of mobile performance with custom shaders and logic.", 
-                media: "Gameplay 1" },
-            { 
-                title: "Combat System", 
-                desc: "Developed fluid action combat with combo chains and parry mechanics.", 
-                media: "Combat GIF" 
+                {
+                    title: "iXR Engineering Demo",
+                desc: "An immersive VR demo designed for engineering students, featuring concept of Jet Engine and other learning modules that transform complex technical concepts into hands-on, engaging virtual experiences.",
+                type: "video",
+                src: "https://scontent-iad3-1.oculuscdn.com/v/t64.7195-25/38974547_821909769649859_6261195562533128975_n.mp4?_nc_cat=108&ccb=1-7&_nc_sid=b20b63&_nc_ohc=BuOAHsZ68OsQ7kNvwHsksdP&_nc_oc=Adpiefin9OY74fzO3-qxDsXYUK7beydvvqe9L9IxGC2d3-pgWAU8kbAELKjjnK4UWkTLLoH9j16cNjjeMvkjCmBi&_nc_zt=28&_nc_ht=scontent-iad3-1.oculuscdn.com&_nc_gid=D_RWY-Xn30qc1ZTLe-kkbg&_nc_ss=7b289&oh=00_Af_y2W5c8Q5-kMUEOG19l8UyPdI69acFcfR2X3C5I6gn-A&oe=6A401A9C" 
             },
-            { 
-                title: "Inventory UI", 
-                desc: "Created a highly responsive and drag-and-drop enabled inventory system.", 
-                media: "UI Screenshot" 
+                {
+                    title: "Thermal Power Plant",
+                desc: "An immersive VR tour of a thermal power plant, designed to educate users about the inner workings of power generation. This experience allows users to explore the plant's components and understand the processes involved in generating electricity.",
+                type: "video",
+                src: "https://scontent-iad3-1.oculuscdn.com/v/t64.7195-25/38974547_821909769649859_6261195562533128975_n.mp4?_nc_cat=108&ccb=1-7&_nc_sid=b20b63&_nc_ohc=BuOAHsZ68OsQ7kNvwHsksdP&_nc_oc=Adpiefin9OY74fzO3-qxDsXYUK7beydvvqe9L9IxGC2d3-pgWAU8kbAELKjjnK4UWkTLLoH9j16cNjjeMvkjCmBi&_nc_zt=28&_nc_ht=scontent-iad3-1.oculuscdn.com&_nc_gid=D_RWY-Xn30qc1ZTLe-kkbg&_nc_ss=7b289&oh=00_Af_y2W5c8Q5-kMUEOG19l8UyPdI69acFcfR2X3C5I6gn-A&oe=6A401A9C" 
             }
-        ]
+        ]        
     ];
 
     showcaseWrappers.forEach((wrapper, panelIndex) => {
         const pPrevBtn = wrapper.querySelector('.panel-prev');
-        const pNextBtn = wrapper.querySelector('.panel-next');
-        const pDotsTrack = wrapper.querySelector('.panel-dots-track');
-        const titleEl = wrapper.querySelector('.info-title');
-        const descEl = wrapper.querySelector('.info-desc');
-        const mediaEl = wrapper.querySelector('.media-text');
-        
-        if (!pPrevBtn || !pNextBtn || !pDotsTrack) return;
+                        const pNextBtn = wrapper.querySelector('.panel-next');
+                        const pDotsTrack = wrapper.querySelector('.panel-dots-track');
+                        const titleEl = wrapper.querySelector('.info-title');
+                        const descEl = wrapper.querySelector('.info-desc');
+                        const mediaContainer = wrapper.querySelector('.project-media');
 
-        const projectsData = panelMockData[panelIndex] || panelMockData[0];
-        let currentIndex = 0;
-        const pDots = [];
+                        if (!pPrevBtn || !pNextBtn || !pDotsTrack) return;
 
-        // Generate dots
-        pDotsTrack.innerHTML = '';
+                        const projectsData = panelMockData[panelIndex] || panelMockData[0];
+                        let currentIndex = 0;
+                        const pDots = [];
+
+                        // Generate dots
+                        pDotsTrack.innerHTML = '';
         projectsData.forEach((_, i) => {
             const dot = document.createElement('div');
-            dot.style.width = '8px';
-            dot.style.height = '8px';
-            dot.style.borderRadius = '50%';
-            dot.style.background = getCSSVar('--color-dot-inactive');
-            dot.style.flexShrink = '0';
-            dot.style.transition = 'all 0.3s ease';
-            pDotsTrack.appendChild(dot);
-            pDots.push(dot);
+                        dot.style.width = '8px';
+                        dot.style.height = '8px';
+                        dot.style.borderRadius = '50%';
+                        dot.style.background = getCSSVar('--color-dot-inactive');
+                        dot.style.flexShrink = '0';
+                        dot.style.transition = 'all 0.3s ease';
+                        pDotsTrack.appendChild(dot);
+                        pDots.push(dot);
         });
 
-        function updatePanel(index) {
-            currentIndex = index;
-            const data = projectsData[currentIndex];
+                        function updatePanel(index) {
+                            currentIndex = index;
+                        const data = projectsData[currentIndex];
 
-            // Add a small fade effect for content
-            const contentElements = [titleEl, descEl, mediaEl];
+                        // Add a small fade effect for content
+                        const contentElements = [titleEl, descEl, mediaContainer];
             contentElements.forEach(el => {
                 if(el) el.style.opacity = 0;
             });
 
             setTimeout(() => {
                 if(titleEl) titleEl.textContent = data.title;
-                if(descEl) descEl.textContent = data.desc;
-                if(mediaEl) mediaEl.textContent = `{${data.media}}`;
+                        if(descEl) descEl.innerHTML = data.desc;
+
+                        if (mediaContainer) {
+                    if (data.type === 'video') {
+                            mediaContainer.innerHTML = `<video src="${data.src}" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"></video>`;
+                    } else if (data.type === 'image') {
+                            mediaContainer.innerHTML = `<img src="${data.src}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">`;
+                    } else {
+                            // Fallback text
+                            mediaContainer.innerHTML = `<span class="media-text" style="color: var(--color-text-muted); font-size: 1.2rem;">{${data.src || data.media}}</span>`;
+                    }
+                }
                 
                 contentElements.forEach(el => {
                     if(el) el.style.opacity = 1;
@@ -298,58 +306,58 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update dots (Instagram style)
             pDots.forEach((dot, i) => {
                 const diff = Math.abs(currentIndex - i);
-                
-                if (diff === 0) {
-                    dot.style.background = getCSSVar('--color-accent');
-                    dot.style.transform = 'scale(1.3)';
-                    dot.style.opacity = '1';
-                    dot.style.boxShadow = '0 0 8px ' + getCSSVarRGB('--color-accent-rgb', 0.8);
+
+                        if (diff === 0) {
+                            dot.style.background = getCSSVar('--color-accent');
+                        dot.style.transform = 'scale(1.3)';
+                        dot.style.opacity = '1';
+                        dot.style.boxShadow = '0 0 8px ' + getCSSVarRGB('--color-accent-rgb', 0.8);
                 } else if (diff === 1) {
-                    dot.style.background = getCSSVar('--color-dot-inactive');
-                    dot.style.transform = 'scale(1)';
-                    dot.style.opacity = '0.8';
-                    dot.style.boxShadow = 'none';
+                            dot.style.background = getCSSVar('--color-dot-inactive');
+                        dot.style.transform = 'scale(1)';
+                        dot.style.opacity = '0.8';
+                        dot.style.boxShadow = 'none';
                 } else if (diff === 2) {
-                    dot.style.background = getCSSVar('--color-dot-inactive');
-                    dot.style.transform = 'scale(0.6)';
-                    dot.style.opacity = '0.5';
-                    dot.style.boxShadow = 'none';
+                            dot.style.background = getCSSVar('--color-dot-inactive');
+                        dot.style.transform = 'scale(0.6)';
+                        dot.style.opacity = '0.5';
+                        dot.style.boxShadow = 'none';
                 } else {
-                    dot.style.background = getCSSVar('--color-dot-inactive');
-                    dot.style.transform = 'scale(0.3)';
-                    dot.style.opacity = '0';
-                    dot.style.boxShadow = 'none';
+                            dot.style.background = getCSSVar('--color-dot-inactive');
+                        dot.style.transform = 'scale(0.3)';
+                        dot.style.opacity = '0';
+                        dot.style.boxShadow = 'none';
                 }
             });
 
-            // Translate track so the active dot is centered
-            const offset = (currentIndex * 20) + 4;
-            pDotsTrack.style.transform = `translateX(-${offset}px)`;
+                        // Translate track so the active dot is centered
+                        const offset = (currentIndex * 20) + 4;
+                        pDotsTrack.style.transform = `translateX(-${offset}px)`;
         }
 
-        // Setup transitions
-        if(titleEl) titleEl.style.transition = 'opacity 0.2s ease-in-out';
-        if(descEl) descEl.style.transition = 'opacity 0.2s ease-in-out';
-        if(mediaEl) mediaEl.style.transition = 'opacity 0.2s ease-in-out';
+                        // Setup transitions
+                        if(titleEl) titleEl.style.transition = 'opacity 0.2s ease-in-out';
+                        if(descEl) descEl.style.transition = 'opacity 0.2s ease-in-out';
+                        if(mediaContainer) mediaContainer.style.transition = 'opacity 0.2s ease-in-out';
 
-        updatePanel(currentIndex);
+                        updatePanel(currentIndex);
 
         pPrevBtn.addEventListener('click', () => {
-            let newIndex = currentIndex - 1;
-            if (newIndex < 0) newIndex = projectsData.length - 1;
-            updatePanel(newIndex);
+                            let newIndex = currentIndex - 1;
+                        if (newIndex < 0) newIndex = projectsData.length - 1;
+                        updatePanel(newIndex);
         });
 
         pNextBtn.addEventListener('click', () => {
-            let newIndex = currentIndex + 1;
+                            let newIndex = currentIndex + 1;
             if (newIndex >= projectsData.length) newIndex = 0;
-            updatePanel(newIndex);
+                        updatePanel(newIndex);
         });
     });
 
     // 7. Mouse Spotlight Effect
     document.addEventListener('mousemove', (e) => {
-        document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
-        document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+                            document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+                        document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
     });
 });
